@@ -6,13 +6,13 @@ table {
     border-collapse: collapse;
 }
 td, th {
-    border: 1px solid #333;
+    border: 1px solid #000;
     width : 5px;
     height: 6px;
     font-size: 5px;
 }
 .off {
-    background-color: black;
+    background-color: #333;
     color: black;
 }
 .on {
