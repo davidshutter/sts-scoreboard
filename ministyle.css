@@ -1,0 +1,30 @@
+
+body {
+    background-color: black;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #000;
+    width : 1px;
+    height: 1px ;
+    font-size: 1px;
+}
+.off {
+    background-color: black;
+    color: black;
+}
+.on {
+    background-color: yellow;
+    color: yellow;
+    border-radius: 30px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 110px 25px 50px; 
+    gap: 10px;
+}
+#clock{
+    margin-left: 20px;
+}
