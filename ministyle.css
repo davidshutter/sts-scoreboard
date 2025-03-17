@@ -7,9 +7,9 @@ table {
 }
 td, th {
     border: 1px solid #000;
-    width : 1px;
-    height: 1px ;
-    font-size: 1px;
+    width : 5px;
+    height: 5px ;
+    font-size: 5px;
 }
 .off {
     background-color: black;
@@ -22,7 +22,7 @@ td, th {
 }
 .container {
     display: grid;
-    grid-template-columns: 300px 50px 100px; 
+    grid-template-columns: 550px 125px 250px; 
     gap: 10px;
 }
 #clock{
