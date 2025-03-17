@@ -22,7 +22,7 @@ td, th {
 }
 .container {
     display: grid;
-    grid-template-columns: 110px 25px 50px; 
+    grid-template-columns: 210px 50px 100px; 
     gap: 10px;
 }
 #clock{
