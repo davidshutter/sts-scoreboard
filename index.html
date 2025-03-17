@@ -176,8 +176,8 @@ async function findGameByDate(daymonthQ) {
         let dd = today.getDate();
         const daymonth = dd+"-"+mm
         const game = await findGameByDate(daymonth);
-        showScoreboard(game.HomeTeam,"homeTeam");
-        showScoreboard(game.AwayTeam,"awayTeam");
+        showScoreboard(game.HomeTeam.padEnd(10," "),"homeTeam");
+        showScoreboard(game.AwayTeam.padEnd(10," "),"awayTeam");
         showScoreboard(game.HomeScore.padStart(2, " "), "homeScore");
         showScoreboard(game.AwayScore.padStart(2, " "), "awayScore");
         showClock()
