@@ -206,12 +206,14 @@ let i=1
             scoreboardFromDate()
             i=i+1
         }
-        if (i===2)
+        if (i===2) {
             scoreboardClock()
+        
             i=i-1
         }
-        setInterval(alternate, 10000);
-        alternate()
+    }
+    setInterval(alternate, 10000);
+    alternate()
     </script>
 </body>
 </html>
