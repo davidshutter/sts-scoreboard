@@ -170,9 +170,9 @@ function interlaceCharMap(input, charMap) {
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const seconds = now.getSeconds().toString().padStart(2, '0');
         const dateline = day+"/"+month+"/"+year
-        const timeline = hours+":"+minutes+":"+seconds
-        showScoreboard(dateline.padEnd(10," "),"homeTeam");
-        showScoreboard(timeline.padEnd(10," "),"awayTeam");
+        const timeline = hours+":"+minutes
+        showScoreboard(dateline.padEnd(10," "),"awayTeam");
+        showScoreboard(timeline.padStart(7," ").padEnd(10," "),"homeTeam");
         
     }
 
