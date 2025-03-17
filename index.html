@@ -52,6 +52,9 @@
             <table id="sbClock" style="margin-top: 8px;"></table>
         </div>
     </div>
+    <div class="info">
+
+    </div>
     <script>
         
             
@@ -198,18 +201,19 @@ async function findGameByDate(daymonthQ) {
     return matchStats;
 }
 
-        async function scoreboardFromDate(){
-            const today = new Date();
-            let mm = today.getMonth() + 1; // Months start at 0!
-            let dd = today.getDate();
-            const daymonth = dd+"-"+mm
-            const game = await findGameByDate(daymonth);
-            showScoreboard(game.HomeTeam,"homeTeam");
-            showScoreboard(game.AwayTeam,"awayTeam");
-            showScoreboard(game.HomeScore.padStart(2, " "), "homeScore");
-            showScoreboard(game.AwayScore.padStart(2, " "), "awayScore");
-            showClock()
+    async function scoreboardFromDate(){
+        const today = new Date();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+        const daymonth = dd+"-"+mm
+        const game = await findGameByDate(daymonth);
+        showScoreboard(game.HomeTeam,"homeTeam");
+        showScoreboard(game.AwayTeam,"awayTeam");
+        showScoreboard(game.HomeScore.padStart(2, " "), "homeScore");
+        showScoreboard(game.AwayScore.padStart(2, " "), "awayScore");
+        showClock()
     }
+
 
     scoreboardFromDate()
     </script>
