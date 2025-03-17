@@ -183,8 +183,35 @@ async function findGameByDate(daymonthQ) {
         showClock()
     }
 
+    function scoreboardClock(){
+        const now = new Date();
+        const day = now.getDate();
+        const month = now.getMonth();
+        const year = now.getFullYear();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        const dateline = day+"/"+month+"/"+year
+        const timeline = hours+":"+minutes
+        showScoreboard(dateline.padEnd(10," "),"awayTeam");
+        showScoreboard(timeline.padStart(7," ").padEnd(10," "),"homeTeam");
+        
+    }
 
-    scoreboardFromDate()
+//    scoreboardFromDate()
+var i=1
+
+    function alternate() {
+        if (i===1){
+            scoreboardFromDate()
+            i=i+1
+        }
+        if (i===2)
+            scoreboardClock()
+            i=i-1
+        }
+        setInterval(alternate, 10000);
+        alternate()
     </script>
 </body>
 </html>
