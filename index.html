@@ -203,13 +203,16 @@ let i=1
 
     function alternate() {
         if (i===1){
-            scoreboardFromDate()
-            i=i+1
+            scoreboardFromDate();
+            setTimeout(() => {
+                i=i+1;
+            }, "5000");
         }
         if (i===2) {
-            scoreboardClock()setTimeout(() => {
+            scoreboardClock();
+            setTimeout(() => {
                 i=i-1;
-            }, "1000");
+            }, "5000");
             
         }
     }
