@@ -176,8 +176,6 @@ function interlaceCharMap(input, charMap) {
             }
 
         output = interlaceCharMap(inputText.toUpperCase(), scoreboardCharMap)
-       console.log(output)
-//        
             fillSpreadsheet(output,tableID);
         }
         function showClock(){
@@ -188,20 +186,16 @@ async function fetchCSV() {
     const response = await fetch('saintsbydate.csv');
     const text = await response.text();
     const rows = text.split("\n").map(row => row.split(","));
-
-    // Convert rows to array of objects (if CSV has headers)
     const headers = rows.shift();
     const data = rows.map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i]?.trim()])));
 
-    console.log(data); // Ensure it's an array of objects
     return data;
 }
 
 async function findGameByDate(daymonthQ) {
-    const data = await fetchCSV(); // Wait for the data to be fetched
+    const data = await fetchCSV(); 
     const matchStats = data.find(p => p.daymonth === daymonthQ);
     return matchStats;
-   // console.log(matchStats); // Output the result
 }
 
         async function scoreboardFromDate(){
@@ -209,7 +203,6 @@ async function findGameByDate(daymonthQ) {
             let mm = today.getMonth() + 1; // Months start at 0!
             let dd = today.getDate();
             const daymonth = dd+"-"+mm
-            console.log(daymonth)
             const game = await findGameByDate(daymonth);
             showScoreboard(game.HomeTeam,"homeTeam");
             showScoreboard(game.AwayTeam,"awayTeam");
