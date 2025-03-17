@@ -171,14 +171,44 @@ function interlaceCharMap(input, charMap) {
         const seconds = now.getSeconds().toString().padStart(2, '0');
         const dateline = day+"/"+month+"/"+year
         const timeline = hours+":"+minutes+":"+seconds
-        showScoreboard(dateline,"homeTeam");
-        showScoreboard(timeline,"awayTeam");
+        showScoreboard(dateline.padEnd(10," "),"homeTeam");
+        showScoreboard(timeline.padEnd(10," "),"awayTeam");
         
     }
 
+    async function fetchCSV() {
+    const response = await fetch('saintsbydate.csv');
+    const text = await response.text();
+    const rows = text.split("\n").map(row => row.split(","));
+    const headers = rows.shift();
+    const data = rows.map(row => Object.fromEntries(headers.map((h, i) => [h.trim(), row[i]?.trim()])));
 
+    return data;
+}
+
+async function findGameByDate(daymonthQ) {
+    const data = await fetchCSV(); 
+    const matchStats = data.find(p => p.daymonth === daymonthQ);
+    return matchStats;
+}
+
+    async function scoreboardFromDate(){
+        const today = new Date();
+        let mm = today.getMonth() + 1; // Months start at 0!
+        let dd = today.getDate();
+        const daymonth = dd+"-"+mm
+        const game = await findGameByDate(daymonth);
+        showScoreboard(game.HomeScore.padStart(2, " "), "homeScore");
+        showScoreboard(game.AwayScore.padStart(2, " "), "awayScore");
+        showClock()
+    }
+
+
+    scoreboardFromDate()
     setInterval(scoreboardClock, 1000);
     scoreboardClock()
+
+
     </script>
 </body>
 </html>
