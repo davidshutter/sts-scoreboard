@@ -23,9 +23,6 @@ td, th {
 }
 .container {
     display: grid;
-    grid-template-columns: 750px 250px; 
-    gap: 10px;
+    grid-template-columns: 730px 120px; 
 }
-#clock{
-    margin-left: 20px;
-}
+
